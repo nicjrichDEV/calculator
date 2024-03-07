@@ -1,4 +1,4 @@
-This project is part of Frontend Masters - Complete Into to Web Dev V3.
+## Calculator Project - Frontend Masters Complete Intro to Web Dev V3
 
 To stretch my CSS skills I created a design in Figma taking inspiration from some Teenage Engineering products to try and make the calculator feel a bit more releastic. This is for sure not my speciality when it comes to design but it has been fun to get a better understanding of how designers create photo releastic objects by using simple vectors, shadows, color, and opacity.
 
