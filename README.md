@@ -4,4 +4,4 @@ To stretch my CSS skills I created a design in Figma taking inspiration from som
 
 Below is an image of the end goal and a link to the [Figma design here](https://www.figma.com/file/fajda74laDj9KrCTOT2tPX/Calculator?type=design&node-id=1%3A2&mode=design&t=uUYMmJLssoqXPNhd-1).
 
-![End Design]()
+![End Design](https://github.com/nicjrichDEV/calculator/blob/main/images/end-design.png?raw=true)
