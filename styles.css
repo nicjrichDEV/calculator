@@ -9,13 +9,45 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: linear-gradient(117deg, #fff 0.69%, #f5f5f5 100%);
+}
+
+.calculator {
+  max-width: 440px;
+  width: 100%;
+  max-height: 672px;
+  height: 100%;
+  display: flex;
+  padding: var(--space-1, 4px);
+  align-items: flex-start;
+  gap: var(--space-2, 8px);
+  border-radius: var(--radii-2xl, 16px);
+  border: 1px solid #fafafa;
+  background: url("./textures/calculator.png"),
+    linear-gradient(155deg, #e5e5e5 -0.05%, #a3a3a3 100.5%);
+  box-shadow: 16px 43px 46px 0px rgba(0, 0, 0, 0.14),
+    36px 97px 62px 0px rgba(0, 0, 0, 0.08),
+    64px 173px 74px 0px rgba(0, 0, 0, 0.02),
+    100px 270px 81px 0px rgba(0, 0, 0, 0), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  filter: blur(0.125px);
+}
+
+.inner {
+  display: flex;
+  padding: var(--space-4, 16px) var(--space-4, 16px) var(--space-12, 48px)
+    var(--space-4, 16px);
+  align-items: flex-start;
+  gap: var(--space-2, 8px);
+  border-radius: var(--radii-2xl, 16px);
+  background: url(<path-to-image>), lightgray 0% 0% / 100px 100px repeat,
+    linear-gradient(155deg, #e5e5e5 -0.05%, #a3a3a3 100.5%);
 }
 
 .calc-container {
   display: grid;
-  max-width: 400px;
+  max-width: 432px;
   width: 100%;
-  max-height: 600px;
+  max-height: 664px;
   height: 100%;
   outline: 2px solid black;
   grid-template-areas:
