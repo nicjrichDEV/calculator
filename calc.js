@@ -1,20 +1,16 @@
-const controls = document.querySelector(".calc-container");
-const screen = document.querySelector(".screen");
+const controls = document.querySelector(".components");
+const screen = document.querySelector(".screen-inner");
 
 let first = "";
 let second = "";
 let operator = "";
-
-document.addEventListener("keydown", (e) => {
-  potentialValues(e);
-});
 
 controls.addEventListener("click", (e) => {
   potentialValues(e);
 });
 
 function potentialValues(event) {
-  let selection = event.target.value || event.key;
+  let selection = event.target.value;
 
   switch (selection) {
     case "C":
@@ -70,9 +66,8 @@ function potentialValues(event) {
       valueSelector(operator, "0");
       break;
     default:
-      console.log("Error");
+      console.log(event.target);
   }
-  console.log(operator);
 }
 
 /**

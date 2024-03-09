@@ -3,32 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <title>Calculator Project</title>
   </head>
   <body>
     <div class="calculator">
-      <div class="inner">
-        <div class="calc-container">
-          <div class="screen">0</div>
-          <button class="acttion clear" value="C">C</button>
-          <button class="action delete" value="Backspace">⌫</button>
-          <button class="action seven" value="7">7</button>
-          <button class="action eight" value="8">8</button>
-          <button class="action nine" value="9">9</button>
-          <button class="action four" value="4">4</button>
-          <button class="action five" value="5">5</button>
-          <button class="action six" value="6">6</button>
-          <button class="action one" value="1">1</button>
-          <button class="action two" value="2">2</button>
-          <button class="action three" value="3">3</button>
-          <button class="action zero" value="0">0</button>
-          <button class="operator divide" value="/">/</button>
-          <button class="operator multi" value="*">*</button>
-          <button class="operator minus" value="-">-</button>
-          <button class="operator plus" value="+">+</button>
-          <button class="operator equal" value="=">=</button>
+      <div class="components">
+        <div class="screen">
+          <div class="screen-inner">0</div>
+          <div class="screen-shine"></div>
         </div>
+        <div class="action clear">
+          <button class="action-ring" value="C">Clear</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action delete">
+          <button class="action-ring" value="Backspace"><-</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action seven">
+          <button class="action-ring" value="7">7</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action eight">
+          <button class="action-ring" value="8">8</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action nine">
+          <button class="action-ring" value="9">9</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action four">
+          <button class="action-ring" value="4">4</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action five">
+          <button class="action-ring" value="5">5</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action six">
+          <button class="action-ring" value="6">6</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action one">
+          <button class="action-ring" value="1">1</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action two">
+          <button class="action-ring" value="2">2</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action three">
+          <button class="action-ring" value="3">3</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="action zero">
+          <button class="action-ring" value="0">0</button>
+          <div class="action-lip"></div>
+        </div>
+        <div class="operator divide">
+          <button class="operator-ring" value="/">÷</button>
+          <div class="operator-lip"></div>
+        </div>
+        <div class="operator multi">
+          <button class="operator-ring" value="*">x</button>
+          <div class="operator-lip"></div>
+        </div>
+        <div class="operator minus">
+          <button class="operator-ring" value="-">-</button>
+          <div class="operator-lip"></div>
+        </div>
+        <div class="operator plus">
+          <button class="operator-ring" value="+">+</button>
+          <div class="operator-lip"></div>
+        </div>
+        <div class="operator equal">
+          <button class="operator-ring" value="=">=</button>
+          <div class="operator-lip"></div>
+        </div>
+      </div>
+      <div class="decoration">
+        <p>C01</p>
+        <a href="https://twitter.com/nicjrichdev">@nicjrichDEV</a>
       </div>
     </div>
     <script src="calc.js"></script>
