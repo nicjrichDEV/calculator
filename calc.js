@@ -1,142 +1,113 @@
-const controls = document.querySelector(".components");
 const screen = document.querySelector(".screen-inner");
 
-let first = "";
-let second = "";
-let operator = "";
+let buffer = "";
+let runningTotal = 0;
+let previousOperator;
 
-controls.addEventListener("click", (e) => {
-  potentialValues(e);
-});
+function buttonClick(value) {
+  if (isNaN(parseInt(value))) {
+    handleOperator(value);
+  } else {
+    handleNumber(value);
+  }
+  rerender();
+}
 
-function potentialValues(event) {
-  let selection = event.target.value;
+function handleNumber(number) {
+  if (buffer === "0") {
+    buffer = number;
+  } else {
+    buffer += number;
+  }
+}
 
-  switch (selection) {
-    case "C":
-      clear();
-      break;
-    case "Backspace":
-      valueSlicer(operator);
-      break;
-    case "/":
-      operator = "/";
-      break;
-    case "*":
-      operator = "*";
+function handleMath(operator) {
+  if (buffer === "0") {
+    // Do nothing already 0
+    return;
+  }
+
+  const intBuffer = parseInt(buffer);
+  if (runningTotal === 0) {
+    runningTotal = intBuffer;
+  } else {
+    flushOperation(intBuffer);
+  }
+
+  previousOperator = operator;
+  buffer = "0";
+}
+
+function flushOperation(intBuffer) {
+  switch (previousOperator) {
+    case "+":
+      runningTotal += intBuffer;
       break;
     case "-":
-      operator = "-";
+      runningTotal -= intBuffer;
       break;
-    case "+":
-      operator = "+";
+    case "x":
+      runningTotal *= intBuffer;
       break;
-    case "=" || "Enter":
-      let result = clac(operator, first, second);
-      display(result);
-      break;
-    case "7":
-      valueSelector(operator, "7");
-      break;
-    case "8":
-      valueSelector(operator, "8");
-      break;
-    case "9":
-      valueSelector(operator, "9");
-      break;
-    case "4":
-      valueSelector(operator, "4");
-      break;
-    case "5":
-      valueSelector(operator, "5");
-      break;
-    case "6":
-      valueSelector(operator, "6");
-      break;
-    case "1":
-      valueSelector(operator, "1");
-      break;
-    case "2":
-      valueSelector(operator, "2");
-      break;
-    case "3":
-      valueSelector(operator, "3");
-      break;
-    case "0":
-      valueSelector(operator, "0");
+    case "÷":
+      runningTotal /= intBuffer;
       break;
     default:
-      console.log(event.target);
+      console.error("Error - hit default case in flushOperation");
+      break;
   }
 }
 
-/**
- * Determines if the value should be placed in first or second store. Then displays the value on the screen.
- * @param {String} op
- * @param {String} value
- */
-function valueSelector(op, value) {
-  if (op === "") {
-    first += value;
-    display(first);
-  } else {
-    second += value;
-    display(second);
-  }
-}
-
-/**
- * Determines if the value should be sliced from first or second store. Then displays the value on the screen.
- * @param {String} op
- */
-function valueSlicer(op) {
-  if (op === "") {
-    first = first.slice(0, -1);
-    display(first);
-  } else {
-    second = second.slice(0, -1);
-    display(second);
-  }
-}
-
-/**
- * Displays the value on the screen
- * @param {String} value
- */
-function display(value) {
-  screen.textContent = value;
-}
-
-/**
- *
- * @param {String} op
- * @param {String} a
- * @param {String} b
- * @returns {Number}
- */
-function clac(op, a, b) {
-  let value1 = parseInt(a);
-  let value2 = parseInt(b);
-  switch (op) {
-    case "/":
-      return value1 / value2;
-    case "*":
-      return value1 * value2;
+function handleOperator(operator) {
+  switch (operator) {
+    case "Clear":
+      buffer = "0";
+      runningTotal = 0;
+      previousOperator = null;
+      rerender();
+      break;
+    case "=":
+      if (previousOperator === null) {
+        // need two numbers to do math
+        return;
+      }
+      flushOperation(parseInt(buffer));
+      previousOperator = null;
+      buffer = "" + runningTotal;
+      runningTotal = 0;
+      break;
+    case "←":
+      if (buffer.length === 1) {
+        buffer = "0";
+      } else {
+        buffer = buffer.substring(0, buffer.length - 1);
+      }
+      break;
+    case "+":
+      handleMath(operator);
+      break;
     case "-":
-      return value1 - value2;
-    case "+":
-      return value1 + value2;
+      handleMath(operator);
+      break;
+    case "x":
+      handleMath(operator);
+      break;
+    case "÷":
+      handleMath(operator);
+      break;
     default:
-      console.log("Error");
+      console.error("Error - hit default case in handleOperator");
+      break;
   }
 }
 
-/**
- * Clears the first, second and operator stores. Then displays 0 on the screen
- */
-function clear() {
-  first = "";
-  second = "";
-  operator = "";
-  display(0);
+function rerender() {
+  screen.innerText = buffer;
 }
+
+function init() {
+  document.querySelector(".components").addEventListener("click", (event) => {
+    buttonClick(event.target.innerText);
+  });
+}
+init();
