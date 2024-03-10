@@ -301,7 +301,6 @@ body::after {
   font-style: normal;
   font-weight: 550;
   line-height: normal;
-  mix-blend-mode: plus-darker;
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
